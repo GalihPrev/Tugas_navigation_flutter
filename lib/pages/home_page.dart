@@ -7,14 +7,18 @@ class HomePage extends StatefulWidget {
 }
 
 final List<Item> items = [
-  Item(name: 'Sugar', price: 5000),
-  Item(name: 'Salt', price: 2000),
+  Item(name: 'Sugar', price: 5000, quality: 'good'),
+  Item(name: 'Salt', price: 2000, quality: 'good'),
+  Item(name: 'Brown Sugar', price: 2000, quality: 'good'),
 ];
 
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Select Your Product"),
+      ),
       body: Container(
         margin: EdgeInsets.all(8),
         child: ListView.builder(
@@ -26,7 +30,7 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.pushNamed(context, '/item', arguments: item);
                 },
-                child: Card( 
+                child: Card(
                   child: Container(
                     margin: EdgeInsets.all(8),
                     child: Row(
